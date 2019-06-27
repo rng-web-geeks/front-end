@@ -1,4 +1,4 @@
-# 在 GitLab Runner 未安装 Chrome 的情况下，配置 Karma 使用 Chrome Headless 进行单元测试 (踩坑日记)
+# 配置 Karma 使用 Chrome Headless 进行单元测试 (踩坑日记)
 
 Howie Chen - 铃盛软件Web Application Team
 
@@ -130,7 +130,7 @@ customLaunchers: {
 
 至此，在经历了一番风风雨雨之后，GitLab Pipeline 终于如我所愿地跑起来了。
 
-把这次的经历写成文章，除了作为笔记以外，我还想把它分享给其它遇到类似问题的人，希望与大家有更多的交流，共同进步。
+把这次的经历写成文章，除了作为笔记以外，我还想把它分享给其他遇到类似问题的人，希望与大家有更多的交流，共同进步。
 
 
 
