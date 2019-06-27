@@ -1,4 +1,4 @@
-# 在 GitLab Runner 未安装 Chrome 的情况下，配置 Karma 使用 Chrome Headless 进行单元测试 (踩坑日记)
+# 配置 Karma 使用 Chrome Headless 进行单元测试 (踩坑日记)
 
 Howie Chen - 铃盛软件Web Application Team
 
