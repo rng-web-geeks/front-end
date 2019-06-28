@@ -9,7 +9,7 @@ Yolin Wu - 铃盛软件Web Application Team <br>
 首先我们需要先了解垂直排列中几个比较重要的概念。
 
 ## 行盒子与内联级元素
-css里面有两个特别重要的概念：行盒子(line box)和内联级元素(inline-level elements).根据<a herf="https://www.w3.org/TR/CSS21/visuren.html#inline-boxes">W3C的解释</a>：
+css里面有两个特别重要的概念：行盒子(line box)和内联级元素(inline-level elements).根据<a href="https://www.w3.org/TR/CSS21/visuren.html#inline-boxes">W3C的解释</a>：
 * **内联级元素**：包括inline（行内元素）， inline-block（行内块元素）， inline-table元素（本文不涉及）；
 * **行盒子**： 内联级元素在一行中一个挨一个地排列形成的行区域。
 
@@ -64,7 +64,7 @@ span{
 
 ### vertical-align原理
 <p><img src="./images/css-vertical-align/vertical-align-explanation.png"/></p> 
-根据W3C的解释，vertical-align是专门为内联级元素在行盒子的垂直排列所设计的。<br>
+根据<a href="https://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align">W3C的解释</a>，vertical-align是专门为内联级元素在行盒子的垂直排列所设计的。<br>
 不同的取值产生的垂直排列效果都是不一样的，下面我们分别来讲述。假设行盒子里面有3个行内块元素和一个行内元素。为了更快找到行盒子的基线我们添加了x字符，为了更好地理解“sub”和“super”我们添加了sub和sup标签。
 
 ```
