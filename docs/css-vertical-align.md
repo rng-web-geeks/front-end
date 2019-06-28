@@ -149,7 +149,7 @@ line-height就是行高，<a href="https://www.w3.org/TR/CSS21/visudet.html#prop
 
 line-height代表行盒子的最小高度，包含基线以上最小高度和基线以下最小高度。line-height与默认字体和字体的font-size有关的，具体的关系本文不做详细解释。<br>
 行盒子中有一个隐藏的区域（strut），它可以理解为一个宽度为0的文本盒子，它的行高等于行盒子的行高。它正是导致图片空白区域的"罪魁祸首"。为了更好地解释，我们在行盒子加个文本，并设置它的背景色。<br>
-<p><img src="./images/rc-strut.png"/></p>
+<p><img src="./images/css-vertical-align/rc-strut.png"/></p>
 
 文本区域的高度就是strut的高度。行盒子默认是baseline对齐，也就是img的基线（图片底部）、strut的基线（字母x的底部）以及行盒子的基线（字母x的底部）是重合的，因为strut的本身的line-height高度撑开了底部，从而形成了空白区域。根据我们前面讲述的原理，我们可以从几个方面去掉空白区域：
 * 设法使strut高度为0，可以设置line-height: 0 或者 font-size: 0;
