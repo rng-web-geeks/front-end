@@ -3,7 +3,7 @@ Yolin Wu - 铃盛软件Web Application Team <br>
 <br>
 相信很多人在开发这个问题：
  
- <p><img src="/images/css-vertical-align/rc.png" alt="vertical-align" width="600"/></p>
+ <p><img src="./images/css-vertical-align/rc.png" alt="vertical-align" width="600"/></p>
  
  如上图，图片底部会出现一个空白区域。可能有经验的开发都知道如何解决，但是这个诡异的空白区域是怎么产生的，却比较少人能解释。这其实是css垂直排列的问题，跟vertical-align和line-height这个两个属性有关系。本文章将致力于讲述这两个属性的原理。<br>
 首先我们需要先了解垂直排列中几个比较重要的概念。
@@ -25,13 +25,13 @@ css在进行垂直方向的排列时，内联级元素和行盒子各自都有�
 2. **行内元素（inline）:** 小写x的底部
 3. **行内块元素（inline-block）:** 分下面几种情况，这边我们假设行盒子中有一个inline-block元素，并且设置它的margin-bottom值，我们在行盒子加一个"x"字母方便找到行盒子的基线。下面所说的边距盒子就是指css的盒子模型，边距盒子底部即margin-bottom底部。
 * 无内容的行内块元素：基线位于边距盒子底部
-<p><img src="/images/css-vertical-align/inline-block-1.png" width=150 alt="inline block type_1"/></p> 
+<p><img src="./images/css-vertical-align/inline-block-1.png" width=150 alt="inline block type_1"/></p> 
 
 * 有内容且overflow不为visible的行内块元素：基线位与最后一个内容元素的基线重合
-<p><img src="/images/css-vertical-align/inline-block-2.png" width=120 alt="inline block type_2"/></p> 
+<p><img src="./images/css-vertical-align/inline-block-2.png" width=120 alt="inline block type_2"/></p> 
 
 * 有内容且overflow为visible的行内块元素：基线位于边距盒子底部
-<p><img src="/images/css-vertical-align/inline-block-3.png" width=120 alt="inline block type_3"/></p> 
+<p><img src="./images/css-vertical-align/inline-block-3.png" width=120 alt="inline block type_3"/></p> 
 了解垂直排列中重要的三个概念，就可以帮助我们更好地理解vertical-align和line-height。
 
 
@@ -57,13 +57,13 @@ span{
   display: inline-block;
 }
 ```
-<p><img src="/images/css-vertical-align/example-1.jpg" width=400/></p> 
+<p><img src="./images/css-vertical-align/example-1.jpg" width=400/></p> 
 这是的布局看起来很正常，但是现在我们需要在第二个文本块添加更多文字：
-<p><img src="/images/css-vertical-align/example-2.jpg" width=400/></p> 
+<p><img src="./images/css-vertical-align/example-2.jpg" width=400/></p> 
 这时我们发现布局都乱了，为什么会这样呢？在了解vertical-align之后，我们就可以解释原因了。<br>
 
 ### vertical-align原理
-<p><img src="/images/css-vertical-align/vertical-align-explanation.png"/></p> 
+<p><img src="./images/css-vertical-align/vertical-align-explanation.png"/></p> 
 根据W3C的解释，vertical-align是专门为内联级元素在行盒子的垂直排列所设计的。<br>
 不同的取值产生的垂直排列效果都是不一样的，下面我们分别来讲述。假设行盒子里面有3个行内块元素和一个行内元素。为了更快找到行盒子的基线我们添加了x字符，为了更好地理解“sub”和“super”我们添加了sub和sup标签。
 
@@ -108,35 +108,35 @@ span {
 
 vertical-align分别取值：
 * **baseline（默认）**
-<p><img src="/images/css-vertical-align/baseline.png" width=600 alt="baseline"/></p> 
+<p><img src="./images/css-vertical-align/baseline.png" width=600 alt="baseline"/></p> 
 
 行盒子基线和内联级元素基线对齐，这是默认值。
 * **middle**
-<p><img src="/images/css-vertical-align/middle.png" width=600 alt="middle"/></p> 
+<p><img src="./images/css-vertical-align/middle.png" width=600 alt="middle"/></p> 
 
 内联级元素的垂直中线与行盒子的基线往上偏移半个x的位置对齐。
 
 * **sub**
-<p><img src="/images/css-vertical-align/sub.png" width=600 alt="sub"/></p> 
+<p><img src="./images/css-vertical-align/sub.png" width=600 alt="sub"/></p> 
 
 内联级元素基线与\<sub\>基线重合
 * **super**
-<p><img src="/images/css-vertical-align/super.png" width=600 alt="super"/></p> 
+<p><img src="./images/css-vertical-align/super.png" width=600 alt="super"/></p> 
 
 内联级元素基线与\<sup\>基线重合
 * **text-top**
-<p><img src="/images/css-vertical-align/text-top.png" width=600 alt="text-top"/></p> 
+<p><img src="./images/css-vertical-align/text-top.png" width=600 alt="text-top"/></p> 
 
 内联级元素上边界和strut顶部对齐。
 **text-bottom**则是与底部对齐
 
 * **top**
-<p><img src="/images/css-vertical-align/top.png" width=600 alt="top"/></p> 
+<p><img src="./images/css-vertical-align/top.png" width=600 alt="top"/></p> 
 
 内联级元素顶部和行盒子顶部对齐，
 **bottom**则是与底部对齐
 * **\<length\>（eg:10px）**
-<p><img src="/images/css-vertical-align/length.png" width=600 alt="<length>"/></p> 
+<p><img src="./images/css-vertical-align/length.png" width=600 alt="<length>"/></p> 
 
 内联级元素的基线往上偏移10px之后和行盒子的基线对齐，注意这里是内联级元素偏移，行盒子的基线位置没变。
 **\<percentage\>** 则是往上偏移，偏移量为内联级元素的line-height *  \<percentage\>
