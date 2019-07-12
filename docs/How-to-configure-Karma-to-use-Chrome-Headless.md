@@ -95,7 +95,7 @@ unit_test_job:
 
 # 问题连连
 
-如果你觉得事情到这儿应该差不多了吧，我也希望是这样，但问题总是接踵而至。请看报错：
+你觉得事情到这儿应该差不多了吧，我也希望是这样，但问题总是接踵而至。请看报错：
 
     23 06 2019 06:20:41.117:INFO [karma-server]: Karma v4.0.1 server started at http://0.0.0.0:9876/
     23 06 2019 06:20:41.119:INFO [launcher]: Launching browsers ChromeHeadless with concurrency unlimited
@@ -126,7 +126,7 @@ customLaunchers: {
 
 
 
-# 结语
+# 结束语
 
 至此，在经历了一番风风雨雨之后，GitLab Pipeline 终于如我所愿地跑起来了。
 
@@ -134,7 +134,7 @@ customLaunchers: {
 
 
 
-# 参考文献
+# 参考文档
 
 - [Puppeteer](https://github.com/GoogleChrome/puppeteer)
 - [Puppeteer - Chrome headless doesn't launch on UNIX](https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md#chrome-headless-doesnt-launch-on-unix)
