@@ -35,13 +35,13 @@ css在进行垂直方向的排列时，内联级元素和行盒子各自都有�
 <p><img src="./images/css-vertical-align/inline-block-3.png" width=120 alt="inline block type_3"/></p> 
 
 ### 3.文本盒子-"strut"
-行盒子中有一个隐藏的区域（Strut），W3C在解释line-height属性时有专门对其进行了定义，我们会在后面详细解释line-height,这里请大家先关注"strut"：
+行盒子中有一个隐藏的区域（strut），W3C在解释line-height属性时有专门对其进行了定义，我们会在后面详细解释line-height,这里请大家先关注"strut"：
 > On a block container element whose content is composed of inline-level elements, 'line-height' specifies the minimal height of line boxes within the element. The minimum height consists of a minimum height above the baseline and a minimum depth below it, exactly as if each line box starts with a zero-width inline box with the element's font and line height properties. We call that imaginary box a "strut."
 
 strut是一个宽度为0的inline box，并且有font和line-height属性。<br>
 为了更好地理解它，我们在行盒子添加一个文本，并且设置了行盒子的背景色，如下图:
 <br>
-<img src="./images/css-vertical-align/strut.png" width=120 alt="inline block type_3"/>
+<img src="./images/css-vertical-align/strut.png" width=500 alt="strut"/>
 <br>
 在图中黄色区域就是strut，默认情况下：
 > strut高度 = strut的line-height = 行盒子的line-height。
