@@ -22,13 +22,13 @@ css在进行垂直方向的排列时，内联级元素和行盒子各自都有�
 
 内联级元素和行盒子的基线位置分别有所不同，我们可以这样判断：
 
-1. **行盒子:** 小写x的底部
-2. **行内元素（inline）:** 小写x的底部
-3. **行内块元素（inline-block）:** 分下面几种情况，这边我们假设行盒子中有一个inline-block元素，并且设置它的margin-bottom值，我们在行盒子加上字母"x"方便找到行盒子的基线。
+&emsp;行盒子:小写x的底部 <br>
+&emsp;行内元素（inline）: 小写x的底部 <br>
+&emsp;行内块元素（inline-block）:分下面几种情况，这边我们假设行盒子中有一个inline-block元素，并且设置它的margin-bottom值，我们在行盒子加上字母"x"方便找到行盒子的基线。
 * 无内容的行内块元素：基线位于元素的margin-bottom底部
 <p><img src="./images/css-vertical-align/inline-block-1.png" width=150 alt="inline block type_1"/></p> 
 
-* 有内容且overflow不为visible的行内块元素：基线位与最后一个内容元素的基线重合
+* 有内容且overflow不为visible的行内块元素：基线与最后一个内容元素的基线重合
 <p><img src="./images/css-vertical-align/inline-block-2.png" width=120 alt="inline block type_2"/></p> 
 
 * 有内容且overflow为visible的行内块元素：基线位于元素的margin-bottom底部
@@ -46,7 +46,7 @@ strut是一个宽度为0的inline box，并且有font和line-height属性。<br>
 在图中黄色区域就是strut，默认情况下：
 > strut高度 = strut的line-height = 行盒子的line-height。
 
-当行盒子完全没有内容的时候，strut不会起任何作用。但当行盒子里面有内容时，它就会"偷偷作怪"，导致一些问题，开头提到的图片底部空白问题就和strut有很大的关系，原因我们将会在文章末尾详细解释。
+当行盒子完全没有内容的时候，strut不会发挥作用。但当行盒子里面有内容时，它就会"偷偷作怪"，导致一些问题，开头提到的图片底部空白问题就和strut有很大的关系，原因我们将会在文章末尾详细解释。
 <br>
 <br>
 了解垂直排列中的几个重要概念，我们将开始讲述vertical-align和line-height是如何影响css的垂直排列。
