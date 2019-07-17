@@ -1,22 +1,20 @@
 # CSS垂直排列
 Yolin Wu - 铃盛软件Web Application Team <br>
-<br>
+相信很多人在开发中都有遇到这个问题：
 
-相信很多人在开发这个问题：
- 
- <p><img src="./images/css-vertical-align/rc.png" alt="vertical-align" width="600"/></p>
- 
- 如上图，图片底部会出现一个空白区域。可能有经验的开发都知道如何解决，但是这个诡异的空白区域是怎么产生的，却比较少人能解释。这其实是css垂直排列的问题，跟vertical-align和line-height这个两个属性有关系。本文章将致力于讲述这两个属性的原理。<br>
-首先我们需要先了解垂直排列中几个比较重要的概念。
+<p><img src="./images/css-vertical-align/rc.png" alt="vertical-align" width="600"/></p>
 
-## CSS垂直排列的几个关键概念
+如上图，图片底部会出现一个空白区域。可能有经验的开发都知道如何解决，但是这个诡异的空白区域是怎么产生的，却比较少人能解释得出来。这其实是css垂直排列的问题，跟vertical-align和line-height这个两个属性有关系。本文章将讲述这个两个属性是如何影响css的垂直排列。<br>
+首先我们需要先清楚几个比较重要的名词。
+
+## CSS垂直排列的几个基本名词
 ### 1.行盒子和内联级元素
-css里面有两个特别重要的概念：行盒子(line box)和内联级元素(inline-level elements).根据<a href="https://www.w3.org/TR/CSS21/visuren.html#inline-boxes">W3C的解释</a>：
-* **内联级元素**：包括inline（行内元素）， inline-block（行内块元素）， inline-table元素（一般很少用，本文不涉及讲）；
+css里面有两个特别重要的概念：行盒子(line box)和内联级元素(inline-level elements)。根据<a href="https://www.w3.org/TR/CSS21/visuren.html#inline-boxes">W3C的解释</a>：
+* **内联级元素**：display为inline（行内元素）、inline-block（行内块元素）、inline-table（使用较少，本文不涉及）的元素。
 * **行盒子**： 内联级元素在一行排列形成的行区域。
 
 例如开头的问题中，图片就是一个内联级元素，它所在的行就是一个行盒子。
-
+<br>
 css在进行垂直方向的排列时，内联级元素和行盒子各自都有一条重要的位置参考线，这条线就是基线(baseline).
 
 ### 2.基线
@@ -27,28 +25,28 @@ css在进行垂直方向的排列时，内联级元素和行盒子各自都有�
 1. **行盒子:** 小写x的底部
 2. **行内元素（inline）:** 小写x的底部
 3. **行内块元素（inline-block）:** 分下面几种情况，这边我们假设行盒子中有一个inline-block元素，并且设置它的margin-bottom值，我们在行盒子加上字母"x"方便找到行盒子的基线。
-* 无内容的行内块元素：基线位于行内块元素margin-bottom底部
+* 无内容的行内块元素：基线位于元素的margin-bottom底部
 <p><img src="./images/css-vertical-align/inline-block-1.png" width=150 alt="inline block type_1"/></p> 
 
 * 有内容且overflow不为visible的行内块元素：基线位与最后一个内容元素的基线重合
 <p><img src="./images/css-vertical-align/inline-block-2.png" width=120 alt="inline block type_2"/></p> 
 
-* 有内容且overflow为visible的行内块元素：基线位于元素margin-bottom底部
+* 有内容且overflow为visible的行内块元素：基线位于元素的margin-bottom底部
 <p><img src="./images/css-vertical-align/inline-block-3.png" width=120 alt="inline block type_3"/></p> 
 
-### 3.文本盒子"Strut"
-行盒子中有一个隐藏的区域（Strut），W3C在解释line-height属性时有专门对其进行了解释，我们会在后面详细解释line-height,这里请大家先关注strut：
+### 3.文本盒子-"strut"
+行盒子中有一个隐藏的区域（Strut），W3C在解释line-height属性时有专门对其进行了定义，我们会在后面详细解释line-height,这里请大家先关注"strut"：
 > On a block container element whose content is composed of inline-level elements, 'line-height' specifies the minimal height of line boxes within the element. The minimum height consists of a minimum height above the baseline and a minimum depth below it, exactly as if each line box starts with a zero-width inline box with the element's font and line height properties. We call that imaginary box a "strut."
 
 strut是一个宽度为0的inline box，并且有font和line-height属性。<br>
-为了更好地理解，我们在行盒子添加一个文本，并且设置了行盒子的背景色，如下图:
+为了更好地理解它，我们在行盒子添加一个文本，并且设置了行盒子的背景色，如下图:
 <br>
 <img src="./images/css-vertical-align/strut.png" width=120 alt="inline block type_3"/>
 <br>
 在图中黄色区域就是strut，默认情况下：
 > strut高度 = strut的line-height = 行盒子的line-height。
 
-当行盒子完全没有内容的时候，strut不会起任何作用。但当行盒子里面有内容时，它就会"偷偷作怪"，导致一些问题，开头提到的图片底部空白问题就和strut有关系，我们将会在文章末尾详细解释。
+当行盒子完全没有内容的时候，strut不会起任何作用。但当行盒子里面有内容时，它就会"偷偷作怪"，导致一些问题，开头提到的图片底部空白问题就和strut有很大的关系，原因我们将会在文章末尾详细解释。
 <br>
 <br>
 了解垂直排列中的几个重要概念，我们将开始讲述vertical-align和line-height是如何影响css的垂直排列。
@@ -147,7 +145,6 @@ vertical-align分别取值：
 <p><img src="./images/css-vertical-align/text-top.png" width=600 alt="text-top"/></p> 
 
 内联级元素上边界和strut顶部对齐。<br>
-> 这里strut是行盒子的一个隐藏区域，w3c在讲述line-height属性时有专门对strut解释，所以我们将在讲述line-height时专门对其进行解释。
 
 **text-bottom**则是与底部对齐
 
@@ -166,13 +163,13 @@ vertical-align分别取值：
 
 ## 垂直排列与line-height
 line-height就是行高，<a href="https://www.w3.org/TR/CSS21/visudet.html#propdef-line-height">W3C标准解释</a>是：
-> On a block container element whose content is composed of inline-level elements, 'line-height' specifies the minimal height of line boxes within the element. The minimum height consists of a minimum height above the baseline and a minimum depth below it, exactly as if each line box starts with a zero-width inline box with the element's font and line height properties. We call that imaginary box a "strut."
+> On a block container element whose content is composed of inline-level elements, 'line-height' specifies the minimal height of line boxes within the element. 
 
 line-height代表行盒子的最小高度，包含基线以上最小高度和基线以下最小高度。line-height与默认字体和字体的font-size有关的，具体的关系本文不做详细解释。<br>
-我们在前面有介绍strut，并且提到它跟图片底部空白区域问题有很大的关系。现在我们就来好好分析一下其中的原因。为了更好地解释，我们在有图片的行盒子中加个文本，并分别设置行黑子和文本的背景色。<br>
+我们在前面有介绍strut，并且提到它跟图片底部空白区域问题有很大的关系。现在我们就来分析一下其中的原因。为了更好地解释，我们在有图片的行盒子中加个文本，并分别设置行盒子和文本的背景色。<br>
 <p><img src="./images/css-vertical-align/rc-strut.png"/></p>
 
-行盒子默认是baseline对齐，也就是img的基线（图片底部）、strut的基线（字母x的底部）以及行盒子的基线（字母x的底部）是重合的，因为strut的本身的line-height高度撑开了底部，从而形成了空白区域。根据我们前面讲述的原理，我们可以从几个方面去掉空白区域：
+如图，行盒子默认是baseline对齐，也就是img的基线（图片底部）、strut的基线（字母x的底部）以及行盒子的基线（字母x的底部）是重合的，因为strut的本身的line-height高度撑开了底部，从而形成了空白区域。根据我们前面讲述的原理，我们可以从几个方面去掉空白区域：
 * 设法使strut高度为0，可以设置line-height: 0 或者 font-size: 0;
 * 改变垂直排列的方式，比如设置vertical-align: middle。
 * 破坏行盒子的形成，可以把img的display设置为除inline、inline-block和inline-table之外的值。这样行盒子就不存在，line-height和vertical-align也没法生效了。
