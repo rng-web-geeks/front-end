@@ -7,7 +7,7 @@ Yolin Wu - 铃盛软件Web Application Team <br>
 <p><img src="./images/css-vertical-align/rc.png" alt="vertical-align" width="600"/></p>
 
 在上图中，图片放置在一行中，底部却莫名其妙出现一个空白区域。这个空白区域究竟怎么产生的？<br>
-其实这个问题仅仅内联元素垂直渲染过程中会出现的问题之一，在了解内联元素垂直渲染原理后，相信谜底就会解开。
+其实这个问题仅仅是内联元素垂直渲染过程中会出现的问题之一，在了解内联元素垂直渲染原理后，相信谜底就会解开。
 <br>
 让我们开始探索吧！
 
@@ -42,7 +42,7 @@ css在进行垂直方向的排列时，需要根据一条线来进行相应的�
 > On a block container element whose content is composed of inline-level elements, 'line-height' specifies the minimal height of line boxes within the element. The minimum height consists of a minimum height above the baseline and a minimum depth below it, exactly as if each line box starts with a zero-width inline box with the element's font and line height properties. We call that imaginary box a "strut."
 
 从解释中概括起来，strut是一个宽度为0的inline box，并且有font和line-height属性。<br>
-为了更好显示这个隐藏区域，我们以下行盒子中添加一个文本，并且设置了行盒子的背景色，如下图:
+为了更好显示这个隐藏区域，我们在下面的行盒子中添加一个文本，并且设置了行盒子的背景色，如下图:
 <br>
 <img src="./images/css-vertical-align/strut.png" width=500 alt="strut"/>
 <br>
