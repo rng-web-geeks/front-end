@@ -182,7 +182,7 @@ vertical-align默认为baseline，也就是img的基线（图片底部）、stru
 * 破坏行盒子的形成，可以把img的display设置为除inline、inline-block和inline-table之外的值。这样行盒子就不存在，line-height和vertical-align也没法生效了。
 
 ### 总结
-css垂直渲染是前端布局中非常重要的知识点，其中vertical-align和line-height是关键的属性。本文章的讲述希望能够帮助各位更好地解决开发中遇到的类似问题。<br>
+css垂直渲染是前端布局中非常重要的知识点，其中vertical-align和line-height是关键的属性。本文章希望能帮助大家对css垂直渲染原理有一定的理解，并且能更加得心应手地处理相关的问题。理论需要结合实践，相信通过多次的实践，大家会更加掌握这部分知识。<br>
 
 ### 参考链接
 1. W3C: https://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align https://www.w3.org/TR/CSS21/visudet.html#propdef-line-height 
