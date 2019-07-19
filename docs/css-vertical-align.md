@@ -43,6 +43,7 @@ css在进行垂直方向的排列时，需要根据一条线来进行相应的�
 从解释中概括起来，strut是一个宽度为0的inline box，并且有font和line-height属性。
 <br/>为了更好显示这个隐藏区域，我们在下面的行盒子中添加一个文本，并且设置了行盒子的背景色，如下图:
 <img src="./images/css-vertical-align/strut.png" width=500 alt="strut"/>
+
 在图中黄色区域就是strut，默认情况下：
 
 > strut高度 = strut的line-height = 行盒子的line-height。
@@ -182,8 +183,8 @@ vertical-align默认为baseline，也就是img的基线（图片底部）、stru
 css垂直渲染是前端布局中非常重要的知识点，其中vertical-align和line-height是关键的属性。本文章希望能帮助大家对css垂直渲染原理有一定的理解，并且能更加得心应手地处理相关的问题。理论需要结合实践，相信通过多次的实践，大家会更加掌握这部分知识。<br>
 
 ### 参考链接
-1. W3C: https://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align https://www.w3.org/TR/CSS21/visudet.html#propdef-line-height
-<br/>2. CSS Baseline: The Good, The Bad And The Ugly: https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/#top 
-<br/>3. Vertical-Align: All You Need To Know (CSS):https://christopheraue.net/design/vertical-align 
-<br/>4. css vertical-align你真的很了解嘛？: https://zhuanlan.zhihu.com/p/28626505 
-<br/>5. CSS深入理解vertical-align和line-height的基友关系: https://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/ 
+* W3C: https://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align https://www.w3.org/TR/CSS21/visudet.html#propdef-line-height
+* CSS Baseline: The Good, The Bad And The Ugly: https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/#top 
+* Vertical-Align: All You Need To Know (CSS):https://christopheraue.net/design/vertical-align 
+* css vertical-align你真的很了解嘛？: https://zhuanlan.zhihu.com/p/28626505 
+* CSS深入理解vertical-align和line-height的基友关系: https://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/ 
