@@ -22,12 +22,10 @@ Yolin Wu - 铃盛软件Web Application Team
 ### 2.基线
 css在进行垂直方向的排列时，需要根据一条线来进行相应的对齐，这条线就是基线(baseline）。无论内联级元素和行盒子都有基线，并且在默认情况下它们是基线对齐的，即行盒子和内联元素的基线位置会重合。
 <br/> 基线是看不见的，但是我们可以通过添加一个小写字母"x"来判断它的位置。不同元素判断方法如下：
-
 <br/> **行盒子（line-box）:** 基线位于小写字母"x"的底部
 <br/> **行内元素（inline）:** 同行盒子
 <br/> **行内块元素（inline-block）:** 行内块元素的情况较多，需要分别说明。
 <br/>这边我们假设行盒子中有一个inline-block元素，并且设置它的margin-bottom值，我们在行盒子加上字母"x"方便找到行盒子的基线。
-
 * 无内容的行内块元素：基线位于元素的margin-bottom底部
 <img src="./images/css-vertical-align/inline-block-1.png" width=150 alt="inline block type_1"/>
 
@@ -44,16 +42,13 @@ css在进行垂直方向的排列时，需要根据一条线来进行相应的�
 
 从解释中概括起来，strut是一个宽度为0的inline box，并且有font和line-height属性。
 <br/>为了更好显示这个隐藏区域，我们在下面的行盒子中添加一个文本，并且设置了行盒子的背景色，如下图:
-
 <img src="./images/css-vertical-align/strut.png" width=500 alt="strut"/>
-
 在图中黄色区域就是strut，默认情况下：
 
 > strut高度 = strut的line-height = 行盒子的line-height。
 
 当行盒子完全没有内容的时候，strut不会发挥作用。但当行盒子里面有内容时，它就会"偷偷作怪"，导致一些问题，开头提到的图片底部空白问题就和strut有很大的关系，原因我们将会在文章末尾详细解释。
 <br/>了解几个重要概念，相信接下来的内容我们会更容易理解。好的，让我们开始最重要的原理解释。
-
 
 ## 垂直渲染与vertical-align
 
@@ -187,8 +182,8 @@ vertical-align默认为baseline，也就是img的基线（图片底部）、stru
 css垂直渲染是前端布局中非常重要的知识点，其中vertical-align和line-height是关键的属性。本文章希望能帮助大家对css垂直渲染原理有一定的理解，并且能更加得心应手地处理相关的问题。理论需要结合实践，相信通过多次的实践，大家会更加掌握这部分知识。<br>
 
 ### 参考链接
-<br/> 1. W3C: https://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align https://www.w3.org/TR/CSS21/visudet.html#propdef-line-height
-<br/> 2. CSS Baseline: The Good, The Bad And The Ugly: https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/#top 
+1. W3C: https://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align https://www.w3.org/TR/CSS21/visudet.html#propdef-line-height
+<br/>2. CSS Baseline: The Good, The Bad And The Ugly: https://www.smashingmagazine.com/2012/12/css-baseline-the-good-the-bad-and-the-ugly/#top 
 <br/>3. Vertical-Align: All You Need To Know (CSS):https://christopheraue.net/design/vertical-align 
 <br/>4. css vertical-align你真的很了解嘛？: https://zhuanlan.zhihu.com/p/28626505 
 <br/>5. CSS深入理解vertical-align和line-height的基友关系: https://www.zhangxinxu.com/wordpress/2015/08/css-deep-understand-vertical-align-and-line-height/ 
