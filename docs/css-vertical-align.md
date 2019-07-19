@@ -62,7 +62,7 @@ css在进行垂直方向的排列时，需要根据一条线来进行相应的�
 ## 垂直渲染与vertical-align
 
 ### 1. 问题背景
-前端开发的页面布局中元素垂直排列是免不了的工作，但是垂直排列相对水平排列就显得"特别不听话"，经常会遇到比较怪异的问题。比如下面的问题：<br>
+前端开发的页面布局中元素垂直排列是免不了的工作，但是垂直排列相对水平排列就显得"特别不听话"，经常会遇到比较怪异的问题。比如下面的问题：
 
 页面左右有两个固定高度的文本块排列在一行。
 
@@ -87,10 +87,9 @@ span{
 ![](images/css-vertical-align/example-1.jpg)
 
 这时候布局看起来正常，现在我们需要在第二个文本块添加更多文字：
-
 ![](images/css-vertical-align/example-2.jpg)
 
-添加更多文字之后，我们发现布局都乱了，为什么会这样呢？vertical-align就是问题的关键。<br>
+添加更多文字之后，我们发现布局都乱了，为什么会这样呢？vertical-align就是问题的关键。
 
 ### 2. vertical-align的原理
 ![](images/css-vertical-align/vertical-align-explanation.png)
@@ -183,21 +182,21 @@ span {
 line-height即行高，[W3C](https://www.w3.org/TR/CSS21/visudet.html#propdef-line-height "W3C")标准解释为：
 > On a block container element whose content is composed of inline-level elements, 'line-height' specifies the minimal height of line boxes within the element. 
 
-从解释中，可知line-height代表行盒子的最小高度，包含基线以上最小高度和基线以下最小高度。而line-height与字体的font-family和font-size有关的，具体的关系本文不做详细解释。<br>
+从解释中，可知line-height代表行盒子的最小高度，包含基线以上最小高度和基线以下最小高度。而line-height与字体的font-family和font-size有关的，具体的关系本文不做详细解释。
 
 ## 问题解释
-目前为止，本文章需要讲述的所有知识点已经完成，回到我们最开始的问题：图片底部空白区域。<br>
-这个问题是strut、vertical-align以及line-height共同作用导致的。为了更好地解释，在这个有问题的行盒子中我们添加一个文本来显示strut区域，并分别设置行盒子和文本的背景色，如下图：<br>
+目前为止，本文章需要讲述的所有知识点已经完成，回到我们最开始的问题：图片底部空白区域。
+这个问题是strut、vertical-align以及line-height共同作用导致的。为了更好地解释，在这个有问题的行盒子中我们添加一个文本来显示strut区域，并分别设置行盒子和文本的背景色，如下图：
 
 ![](images/css-vertical-align/rc-strut.png)
 
 vertical-align默认为baseline，也就是img的基线（图片底部）、strut的基线（字母x的底部）以及行盒子的基线（字母x的底部）是重合的，而strut的本身又有高度（值为line-height），于是共同作用下把底部撑高了一部分，导致了空白区域。根据我们前面讲述的原理，我们可以从几个方面去掉空白区域：
 1. 设法使strut高度为0，可以设置line-height: 0 或者 font-size: 0;
-2. 改变垂直排列的方式，比如设置vertical-align: middle。
+2. 改变垂直排列的方式，比如设置vertical-align: middle;
 3. 破坏行盒子的形成，可以把img的display设置为除inline、inline-block和inline-table之外的值。这样行盒子就不存在，line-height和vertical-align也没法生效了。
 
 ### 总结
-css垂直渲染是前端布局中非常重要的知识点，其中vertical-align和line-height是关键的属性。本文章希望能帮助大家对css垂直渲染原理有一定的理解，并且能更加得心应手地处理相关的问题。理论需要结合实践，相信通过多次的实践，大家会更加掌握这部分知识。<br>
+css垂直渲染是前端布局中非常重要的知识点，其中vertical-align和line-height是关键的属性。本文章希望能帮助大家对css垂直渲染原理有一定的理解，并且能更加得心应手地处理相关的问题。理论需要结合实践，相信通过多次的实践，大家会更加掌握这部分知识。
 
 ### 参考链接
 1. W3C: [vertical-align](https://www.w3.org/TR/CSS21/visudet.html#propdef-vertical-align) [line-height](https://www.w3.org/TR/CSS21/visudet.html#propdef-line-height)
