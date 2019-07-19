@@ -43,8 +43,7 @@ css在进行垂直方向的排列时，需要根据一条线来进行相应的�
 从解释中概括起来，strut是一个宽度为0的inline box，并且有font和line-height属性。
 <br/>为了更好显示这个隐藏区域，我们在下面的行盒子中添加一个文本，并且设置了行盒子的背景色，如下图:
 <img src="./images/css-vertical-align/strut.png" width=500 alt="strut"/>
-
-在图中黄色区域就是strut，默认情况下：
+<br/>在图中黄色区域就是strut，默认情况下：
 
 > strut高度 = strut的line-height = 行盒子的line-height。
 
